@@ -35,7 +35,7 @@ def split_dataframe(main_df):
     non_uniques_df = main_df.loc[:, [col for col in main_df if not main_df[col].is_unique]].copy()
     int_compare_df = non_uniques_df.transform(convert_to_ints)
     new_col_list = list(non_uniques_df.columns)
-    df_list = [main_df]
+    df_list = []
     already_checked_cols = [] 
     for col in new_col_list:
         new_table_cols = [col]
@@ -51,6 +51,10 @@ def split_dataframe(main_df):
     # for table in df_list:
         # print(table)
         # print("\n\n")
+    main_copy = main_df.copy()
+    for i, df in enumerate(df_list):
+        main_copy.insert(len(main_copy), )
+
     return df_list
     
 
